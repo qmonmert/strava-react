@@ -6,3 +6,11 @@
 * create-react-app strava-react
 * cd strava-react
 * yarn start
+
+## Deploy
+
+* npm install -g firebase-tools
+* firebase init
+* firebase deploy
+
+URL : https://strava-fb549.firebaseapp.com
