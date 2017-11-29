@@ -1,0 +1,12 @@
+.dark nav {
+  background-color: black;
+} 
+
+.dark nav a {
+  color: white;
+} 
+
+.default nav a {
+  background-color: white;
+  color: black;
+} 
