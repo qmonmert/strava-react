@@ -11,6 +11,7 @@
 
 * npm install -g firebase-tools
 * firebase init
+* yarn build
 * firebase deploy
 
 URL : https://strava-fb549.firebaseapp.com
