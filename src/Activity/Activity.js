@@ -14,7 +14,7 @@ class Activity extends Component {
                             {this.props.name}
                             <br/>
                             <FormattedMessage 
-                                id="myId" 
+                                id="dateActivity" 
                                 defaultMessage="{day}/{month}/{year}" 
                                 values={{
                                     day: <FormattedDate value={this.props.startDate} day="2-digit"/>,

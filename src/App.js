@@ -1,45 +1,37 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Activity from './Activity/Activity';
+import About from './About/About';
+import Activities from './Activities/Activities';
 import NavbarCustom from './NavbarCustom/NavbarCustom';
-import myData from './json/activities.json';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-        darkTheme: true,
-        activities: []
-    };
-  }
-
-  componentDidMount() {
-    this.setState(prevState => ({
-      activities: myData
-    }));
+        darkTheme: true
+    }
   }
 
   changeTheme(t) {
-    this.setState({
-      darkTheme: t
-    });
+      this.setState({
+          darkTheme: t
+      });
   }
 
   render() {
     return (
-      <div className="container">
+      <Router>
         <div className={this.state.darkTheme ? 'dark' : 'default'}>
-          <NavbarCustom theme={this.changeTheme.bind(this)} />
-          <br/>
-          <div className="row">
-            {this.state.activities.map((activity, i) => 
-              <Activity key={activity.id} id={activity.id} startDate={activity.start_date} name={activity.name} type={activity.type}/> 
-            )}
-          </div> 
+          <div className="container">
+            <NavbarCustom theme={this.changeTheme.bind(this)} />
+            <br />
+          </div>
+          <Route exact path="/" component={Activities} />
+          <Route path="/about" render={(props) => (<About darkTheme={this.state.darkTheme} {...props}/>)} />
         </div>
-      </div>
+      </Router>
     );
   }
 }
